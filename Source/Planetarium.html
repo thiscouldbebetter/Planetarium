@@ -1,0 +1,142 @@
+<html>
+<body>
+
+<div id="divUi">
+
+	<h3>Planetarium*</h3>
+
+	<p>
+		Enter a set of coordinates for stars,
+		then the observer's latitude, longitude, heading, and pitch,
+		plus the date and time of the observation,
+		then click the Render button
+		to get a view of the night sky at that time and location.
+	</p>
+
+	<div>
+		<label>
+			Star Positions
+			(name, right ascension, declination):
+		</label>
+		<button
+			onclick="UiEventHandler.buttonStarPositionsLoadDemo_Clicked()"(
+		>
+			Load Demo
+		</button>
+		<br />
+		<textarea
+			id="textareaStars"
+			cols="40" rows="12"
+		></textarea>
+	</div>
+
+	<div>
+		<label>Observation:</label>
+		<br />
+
+		<label>Date/Time (in UTC):</label>
+		<input type="date"></input>
+		<input type="time"></input>
+		<br />
+
+		<label>Location:</label>
+		<label>Latitude (in degrees north of equator):</label>
+		<input
+			id="inputLatitudeInDegreesNorthOfEquator"
+			type="number"
+			min="-90"
+			max="90"
+			value="34"
+		></input>
+		<br />
+
+		<label>Longitude (in degrees east of prime meridian):</label>
+		<input
+			id="inputLongitudeInDegreesEastOfPrimeMeridian"
+			type="number"
+			min="-180"
+			max="180"
+			value="-84"
+		></input>
+		<br />
+
+		<label>Facing (in degrees clockwise from north):</label>
+		<input
+			id="inputObserverFacingInDegreesClockwiseFromNorth"
+			type="number"
+			min="0"
+			max="360"
+			value="0"
+		></input>
+		<br />
+
+		<label>Tilt (in degrees above horizon):</label>
+		<input
+			id="inputObserverTiltInDegreesAboveHorizon"
+			type="number"
+			min="0"
+			max="360"
+			value="0"
+		></input>
+
+		<br />
+	</div>
+
+	<div>
+		<label>Image:</label>
+		<label>Size:</label>
+		<input
+			id="inputImageSizeInPixelsX"
+			type="number"
+			min="1"
+			max="1920"
+			step="1"
+			value="400"
+		></input>
+		<label>x</label>
+		<input
+			id="inputImageSizeInPixelsY"
+			type="number"
+			min="1"
+			max="1080"
+			step="1"
+			value="300"
+		></input>
+
+		<button
+			onclick="UiEventHandler.buttonRender_Clicked()"
+		>
+			Render
+		</button>
+	</div>
+
+	<div>
+		<label>Rendered Image:</label>
+		<br />
+		<div id="divImageRendered">
+			[none]
+		</div>
+	</div>
+
+	</p>
+		*"Planetarium" is a bit of a misnomer, since this program
+		will only accurately render objects so far from the Earth
+		that their position in the celestial sphere seems "fixed",
+		which is true of stars but not planets.
+	</p>
+
+</div>
+
+<script type="text/javascript" src="Camera.js"></script>
+<script type="text/javascript" src="CelestialSphere.js"></script>
+<script type="text/javascript" src="Coords.js"></script>
+<script type="text/javascript" src="LatitudeLongitude.js"></script>
+<script type="text/javascript" src="Observation.js"></script>
+<script type="text/javascript" src="Orientation.js"></script>
+<script type="text/javascript" src="PlanetariumView.js"></script>
+<script type="text/javascript" src="Polar.js"></script>
+<script type="text/javascript" src="Star.js"></script>
+<script type="text/javascript" src="UiEventHandler.js"></script>
+
+</body>
+</html>
