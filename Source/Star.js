@@ -1,9 +1,10 @@
 
 class Star
 {
-	constructor(name, posAsPolar)
+	constructor(name, visualMagnitude, posAsPolar)
 	{
 		this.name = name;
+		this.visualMagnitude = visualMagnitude;
 		this.posAsPolar = posAsPolar;
 	}
 
@@ -16,7 +17,8 @@ class Star
 
 		var name = fields[0];
 		var posAsRightAscensionAndDeclination = fields[1];
-		var posAsPolar = Polar.fromStringRightAscensionAndDeclination		(
+		var posAsPolar = Polar.fromStringRightAscensionAndDeclination
+		(
 			posAsRightAscensionAndDeclination
 		);
 
